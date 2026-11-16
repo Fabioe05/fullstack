@@ -56,7 +56,7 @@ form.addEventListener("submit", async (e) => {
     invalidCheck.classList.remove("hidden");
     return;
   }
-
+  // Enviando solicitud al backend para guardar la tarea
   try {
     const { data } = await axios.post("/api/todos", { text }, {withCredentials: true});
     ul.append(createTodoItem(data));

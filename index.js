@@ -3,7 +3,9 @@ const http = require('http');
 
 const server = http.createServer(app);
 
-server.listen(3003, () =>{
-    console.log('El servidor esta ejecutandose en el puerto 3003');
+const PORT = process.env.PORT || 3003;
+
+server.listen(PORT, () =>{
+    console.log(`El servidor esta ejecutandose en el puerto ${PORT}`);
    
 })

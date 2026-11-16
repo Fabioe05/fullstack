@@ -16,6 +16,7 @@ todosRouter.post("/", async (request, response) => {
     checked: false,
     user: user._id,
   });
+  // Guardando la nueva tarea y actualizando la lista de tareas del usuario
   const savedTodo = await newTodo.save();
   user.todos = user.todos.concat(savedTodo._id);
   await user.save();

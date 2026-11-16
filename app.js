@@ -14,7 +14,7 @@ const app = express();
 // Conexión a Base de Datos
 (async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URI_TEST);
+        await mongoose.connect(MONGO_URI);
         console.log("Conectado a MongoDB exitosamente");
     } catch (error) {
         console.log("Error de conexión:", error);
@@ -38,8 +38,8 @@ app.use(
   express.static(path.join(__dirname, "PaginaPrincipal", "registro")),
 );
 app.use("/imagenes", express.static(path.join(__dirname, "img")));
-app.use("/todos", express.static(path.resolve("views", "todos")));
-app.use('/login', express.static(path.join(__dirname, 'login')));
+app.use("/todos", express.static(path.join(__dirname, "PaginaPrincipal", "todos")));
+app.use('/login', express.static(path.join(__dirname, 'PaginaPrincipal', 'login')));
 
 // Estáticos y vista para la verificación de correo
 app.use(
